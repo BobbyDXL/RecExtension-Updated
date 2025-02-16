@@ -1,6 +1,6 @@
 # RecFix - YouTube Recommendations Manager
 
-RecFix is a Chrome extension that helps you take control of your YouTube recommendations. It allows you to analyze your current recommendations, filter out unwanted content, and guide YouTube's algorithm towards content you actually want to see.
+RecFix is a browser extension that helps you take control of your YouTube recommendations. It allows you to analyze your current recommendations, filter out unwanted content, and guide YouTube's algorithm towards content you actually want to see. Available for both Chrome and Firefox.
 
 ## Features
 
@@ -13,6 +13,7 @@ RecFix is a Chrome extension that helps you take control of your YouTube recomme
 - ⚡ Rate limiting (2 fixes per day) to manage API usage
 - 🌙 Dark mode support with system preference detection
 - 🎨 Modern UI with smooth animations
+- 🌐 Cross-browser compatibility (Chrome and Firefox)
 
 ## Installation
 
@@ -27,7 +28,18 @@ RecFix is a Chrome extension that helps you take control of your YouTube recomme
 8. Click the puzzle piece icon in Chrome's toolbar to pin the extension
 9. The RecFix icon should now be visible in your toolbar
 
+### Loading the Extension in Firefox
+1. Download or clone this repository to your local machine
+2. Open Firefox and type `about:debugging` in the address bar
+3. Click "This Firefox" in the left sidebar
+4. Click "Load Temporary Add-on"
+5. Navigate to the `Firefox Extension` directory in the repository
+6. Select the `manifest.json` file and click "Open"
+7. The extension should now appear in your add-ons list
+8. Click the extensions icon in Firefox's toolbar to pin RecFix
+
 ### Updating the Extension
+#### Chrome
 1. If you make changes to the extension code:
    - Return to `chrome://extensions/`
    - Find RecFix in the list
@@ -36,13 +48,31 @@ RecFix is a Chrome extension that helps you take control of your YouTube recomme
    - Follow the same steps as initial installation
    - Chrome will update the existing installation
 
+#### Firefox
+1. For temporary installations:
+   - Return to `about:debugging`
+   - Find RecFix in the list
+   - Click "Reload" to update the extension
+2. For new versions:
+   - Remove the existing temporary add-on
+   - Follow the installation steps again with the new version
+
 ### Troubleshooting Installation
+#### Chrome
 - If the extension doesn't load, check for error messages in:
   - The extensions page (`chrome://extensions/`)
   - Chrome's Developer Tools console (F12)
 - Ensure all required files are present in the directory
 - Try disabling and re-enabling Developer mode
 - Restart Chrome if issues persist
+
+#### Firefox
+- If the extension doesn't load, check for error messages in:
+  - The Browser Console (Ctrl+Shift+J or Cmd+Shift+J)
+  - The about:debugging page
+- Ensure you're loading the Firefox-specific version from the `Firefox Extension` directory
+- Check that all permissions are granted
+- Try restarting Firefox if issues persist
 
 ### Required Setup
 1. Get a YouTube Data API key:
@@ -228,3 +258,23 @@ Built with:
 - Tailwind CSS
 - Framer Motion
 - Chrome Extensions API 
+
+## Browser Compatibility
+
+### Chrome
+- Works on Chrome version 88 and above
+- Full support for all features
+- Optimized performance with Chrome's V8 engine
+- Persistent installation through Chrome Web Store (coming soon)
+
+### Firefox
+- Works on Firefox version 89 and above
+- Complete feature parity with Chrome version
+- Optimized for Firefox's WebExtensions API
+- Temporary installation through about:debugging (Firefox Add-ons Store listing coming soon)
+
+### Known Browser-Specific Differences
+- OAuth implementation varies slightly between browsers
+- Firefox requires additional host permissions declarations
+- Chrome uses Manifest V3, Firefox uses Manifest V2
+- Minor styling adjustments for browser-specific UI elements 
