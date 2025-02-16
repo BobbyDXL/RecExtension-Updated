@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "RecFix",
+  "version": "1.1.0",
+  "description": "Fix and fine-tune your YouTube recommendations",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlp8BLXRGT/kZSLJjf1Pgf+T0pQ1HQukjoCZkG5DMO8B7DMxgF+mSatKl4bbI5DMABBc9/L7z71lGzhxzwcxVVOqG1aNahoL2d+KScZJ+wpG3zO/9FWMX+Cm0Kj+JiB/LahhSPifvT3PHLv10TIb4U7gHbFsTVqPy0s4wpvyV5zrIwvQgBaD+Z116Tf5lPQFOosPk+vPuChf0S7mivc7IbxqYqVg2K5NuVryb2oLqAIBin3gz3QYU0slGuP61R/WLUiPmcMC3XHrg5ssDQKgpw9qURRwrsVj7mn4Apy775FulMdZQE0qFkwOjEfDnaZs5zO+l3zNcoeRLMMNCcx87fQIDAQAB",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "identity",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*.youtube.com/*",
+    "https://www.googleapis.com/*"
+  ],
+  "oauth2": {
+    "client_id": "150330191959-66fbbu6ag4i92sk0fm6mu5qo837dbgan.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/youtube",
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+    ]
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "web_accessible_resources": [{
+    "resources": ["output.css", "motion.js"],
+    "matches": ["<all_urls>"]
+  }]
+} 

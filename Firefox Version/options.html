@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RecFix Options</title>
+    <style>
+        body {
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .help-text {
+            margin-top: 5px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .status {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .status.success {
+            background: #e6ffe6;
+            color: #27ae60;
+        }
+
+        .status.error {
+            background: #ffe6e6;
+            color: #d63031;
+        }
+
+        .instructions {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .instructions h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .instructions ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .instructions li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>RecFix Options</h1>
+
+        <div class="form-group">
+            <label for="apiKey">YouTube Data API Key</label>
+            <input type="text" id="apiKey" placeholder="Enter your YouTube Data API key">
+            <div class="help-text">Required for fetching video details and recommendations</div>
+        </div>
+
+        <button id="save">Save Settings</button>
+        <div id="status" class="status"></div>
+
+        <div class="instructions">
+            <h2>How to get a YouTube Data API Key</h2>
+            <ol>
+                <li>Go to the <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Console</a></li>
+                <li>Create a new project or select an existing one</li>
+                <li>Enable the YouTube Data API v3 for your project</li>
+                <li>Go to the Credentials page</li>
+                <li>Click "Create Credentials" and select "API Key"</li>
+                <li>Copy your API key and paste it above</li>
+                <li>Optional: Restrict the API key to only the YouTube Data API</li>
+            </ol>
+        </div>
+    </div>
+    <script src="options.js"></script>
+</body>
+</html> 

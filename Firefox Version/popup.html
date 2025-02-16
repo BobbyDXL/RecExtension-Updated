@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecFix</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-w-[400px] max-w-[600px]">
+    <div class="p-4">
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-2xl font-bold text-primary-600 dark:text-primary-400">RecFix</h1>
+        </div>
+
+        <!-- Tabs -->
+        <div class="flex border-b border-gray-200 dark:border-gray-700 mb-6">
+            <div class="tab active" data-tab="scan">Scan Page</div>
+            <div class="tab" data-tab="manual">Manual Input</div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div class="loading hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div class="animate-spin-slow rounded-full h-16 w-16 border-t-2 border-b-2 border-primary-500"></div>
+        </div>
+
+        <!-- Status Message -->
+        <div class="status-message hidden"></div>
+
+        <!-- Scan Content -->
+        <div id="scan-content" class="space-y-4">
+            <button id="scan-btn" class="btn btn-primary w-full">
+                Scan Current Page
+            </button>
+        </div>
+
+        <!-- Manual Input Content -->
+        <div id="manual-content" class="hidden space-y-4">
+            <textarea id="manual-input" rows="4" class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary-500 focus:border-primary-500" placeholder="Enter YouTube URLs (one per line)"></textarea>
+            <button id="process-urls-btn" class="btn btn-primary w-full">
+                Process URLs
+            </button>
+        </div>
+
+        <!-- Recommendations List -->
+        <div id="recommendations-list" class="mt-6 grid grid-cols-1 gap-4"></div>
+
+        <!-- Video Item Template -->
+        <template id="video-item-template">
+            <div class="card cursor-pointer hover:ring-2 hover:ring-primary-500 transition-all duration-200">
+                <div class="relative">
+                    <input type="checkbox" class="checkbox absolute top-2 right-2 z-10 pointer-events-none">
+                    <img src="" alt="" class="w-full h-full object-cover">
+                </div>
+                <div class="p-4">
+                    <h3 class="font-medium text-sm mb-1 line-clamp-2"></h3>
+                    <p class="text-xs text-gray-600 dark:text-gray-400"></p>
+                </div>
+            </div>
+        </template>
+
+        <!-- Action Buttons -->
+        <div class="sticky bottom-0 bg-gray-50 dark:bg-gray-900 pt-4 pb-2 space-x-2 flex justify-end">
+            <button id="fix-feed-btn" class="btn btn-primary" disabled>
+                Fix Feed
+            </button>
+            <button id="save-btn" class="btn btn-secondary" disabled>
+                Save
+            </button>
+        </div>
+    </div>
+
+    <script src="motion.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html> 

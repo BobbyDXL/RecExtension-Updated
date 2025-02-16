@@ -1,0 +1,53 @@
+{
+  "manifest_version": 2,
+  "name": "RecFix",
+  "version": "1.1.0",
+  "description": "Fix and fine-tune your YouTube recommendations",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "recfix@5159f195-fd78-00ed-81cb-cbdb4dca7fe9",
+      "strict_min_version": "57.0"
+    }
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "identity",
+    "https://*.youtube.com/*",
+    "https://www.googleapis.com/*"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    "output.css",
+    "motion.js"
+  ],
+  "oauth2": {
+    "client_id": "150330191959-62vmqd2sn4ntngcor25cmkuuo7u7dt8v.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/youtube",
+      "https://www.googleapis.com/auth/youtube.force-ssl"
+    ]
+  }
+} 
